@@ -69,8 +69,48 @@ public class Condicionales {
         return mensaje;
     }
     
-    public String mensajeSalario(){
+    public String mensajeSalario(double dHorasTrabajo, double dSalarioHora, String sDondeVive, String sDesHij){
+    	double dSalarioTotal=dHorasTrabajo*dSalarioHora;
+    	boolean bTieneHijos=false;
         String mensaje="";
+        if(sDesHij.equals("s")) {
+        	bTieneHijos=true;
+        }else if(sDesHij.equals("n")) {
+        	bTieneHijos=false;
+        }
+        if(dSalarioTotal<8000) {
+        	if(bTieneHijos==true) {
+        		if(sDondeVive.equals("Guadalajara")) {
+        			mensaje="Te faltan billetes";
+        		}else {
+        			if(sDondeVive.equals("Oaxaca")) {
+        				mensaje="No lo haga compa";
+        			}else {
+        				mensaje="No disponible";
+        			}
+        		}
+        	}else {
+        		if(sDondeVive.equals("Guadalajara")) {
+        			mensaje="Metete a Generation";
+        		}else {
+        			mensaje="No disponible";
+        		}
+        	}
+        }else {
+        	if(bTieneHijos==true) {
+        		if(sDondeVive.equals("Guadalajara")) {
+        			mensaje="Feliz como una lombriz!";
+        		}else {
+        			mensaje="No disponible";
+        		}
+        	}else {
+        		if(sDondeVive.equals("Guadalajara")) {
+        			mensaje="Se va a hacer o no se va a hacer";
+        		}else {
+        			mensaje="No disponible";
+        		}
+        }
+        }
         return mensaje;
     }
 }
